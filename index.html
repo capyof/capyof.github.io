@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pl" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capy - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <button id="theme-toggle" class="theme-btn">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <main class="container">
+        <div class="card">
+            <h1>Cześć! Jestem Capy!</h1>
+            <p class="subtitle">Poznaj mnie!</p>
+
+            <nav class="icon-nav">
+                <div class="nav-item" onclick="openWindow('skills', 'Co umiem')">
+                    <i class="fas fa-book"></i>
+                    <span>Co umiem</span>
+                </div>
+                <div class="nav-item" onclick="openWindow('learning', 'Czego się uczę')">
+                    <i class="fas fa-book-open"></i>
+                    <span>Czego się uczę</span>
+                </div>
+                <div class="nav-item" onclick="openWindow('interests', 'Zainteresowania')">
+                    <i class="fas fa-brain"></i>
+                    <span>Zainteresowania</span>
+                </div>
+                <div class="nav-item" onclick="openWindow('numbers', 'FancyHub Numery')">
+                    <i class="fas fa-cube"></i>
+                    <span>FancyHub Numery</span>
+                </div>
+                <div class="nav-item" onclick="openWindow('about', 'O mnie')">
+                    <i class="fas fa-user"></i>
+                    <span>O mnie</span>
+                </div>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="social-bar">
+        <div class="social-item"><i class="fab fa-discord"></i> @f3n_ix</div>
+        <div class="social-item" href="https://www.youtube.com/@capy.of.official"><i class="fab fa-youtube"></i> @capy.of.official</div>
+        <div class="social-item" href="https://www.instagram.com/capybara.official.ig/"><i class="fab fa-instagram"></i> @capybara.official.ig</div>
+        <div class="social-item" href="https://tiktok.com/@capy.of.of"><i class="fab fa-tiktok"></i> @capy.of.of</div>
+    </footer>
+
+    <div id="window-template" class="window" style="display: none;">
+        <div class="window-header">
+            <span class="window-title">Tytuł</span>
+            <button class="close-btn" onclick="closeWindow(this)">&times;</button>
+        </div>
+        <div class="window-content">
+            <div class="avatar-circle">
+                <img src="images/CapyOF_PFP.jpg" alt="Avatar" style="width:100%; height:100%; object-fit: cover;">
+            </div>
+            <div class="placeholder-text"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
