@@ -1,93 +1,74 @@
-:root {
-    --bg-color: #f0f0f0;
-    --dot-color: #d1d1d1;
-    --card-bg: #ffffff;
-    --text-color: #000000;
-    --accent-blue: #a3c9f8;
-    --window-bg: #ffffff;
-}
+<!DOCTYPE html>
+<html lang="pl" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capy - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
 
-[data-theme="dark"] {
-    --bg-color: #1a1a1a;
-    --dot-color: #333333;
-    --card-bg: #2d2d2d;
-    --text-color: #ffffff;
-    --accent-blue: #1e3a5f;
-    --window-bg: #3d3d3d;
-}
+    <button id="theme-toggle" class="theme-btn">
+        <i class="fas fa-moon"></i>
+    </button>
 
-body {
-    margin: 0;
-    font-family: sans-serif;
-    background-color: var(--bg-color);
-    background-image: radial-gradient(var(--dot-color) 1px, transparent 1px);
-    background-size: 20px 20px;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    color: var(--text-color);
-}
+    <main class="container">
+        <div class="card">
+            <h1>Cześć! Jestem Capy!</h1>
+            <p class="subtitle">Poznaj mnie!</p>
 
-.theme-btn { position: absolute; top: 20px; left: 20px; cursor: pointer; background: none; border: none; font-size: 24px; color: var(--text-color); }
+    <nav class="icon-nav">
+        <div class="nav-item" onclick="openWindow('skills', 'Co umiem')">
+            <i class="fas fa-book"></i>
+            <span>Co umiem</span>
+        </div>
+        <div class="nav-item" onclick="openWindow('learning', 'Czego się uczę')">
+            <i class="fas fa-book-open"></i>
+            <span>Czego się uczę</span>
+        </div>
+        <div class="nav-item" onclick="openWindow('interests', 'Zainteresowania')">
+            <i class="fas fa-brain"></i>
+            <span>Zainteresowania</span>
+        </div>
+        <div class="nav-item" onclick="openWindow('projects', 'Moje projekty')">
+             <i class="fas fa-folder-open"></i>
+             <span>Moje projekty</span>
+        </div>
+        <div class="nav-item" onclick="openWindow('numbers', 'FancyHub Numery')">
+             <i class="fas fa-cube"></i>
+             <span>FancyHub Numery</span>
+        </div>
+        <div class="nav-item" onclick="openWindow('about', 'O mnie')">
+             <i class="fas fa-user"></i>
+             <span>O mnie</span>
+        </div>
+    </nav>
+                </div>
+            </nav>
+        </div>
+    </main>
 
-.card { background: var(--card-bg); padding: 50px; border-radius: 30px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+    <footer class="social-bar">
+        <div class="social-item"><i class="fab fa-discord"></i> @f3n_ix</div>
+        <div class="social-item" href="https://www.youtube.com/@capy.of.official"><i class="fab fa-youtube"></i> @capy.of.official</div>
+        <div class="social-item" href="https://www.instagram.com/capybara.official.ig/"><i class="fab fa-instagram"></i> @capybara.official.ig</div>
+        <div class="social-item" href="https://tiktok.com/@capy.of.of"><i class="fab fa-tiktok"></i> @capy.of.of</div>
+    </footer>
 
-.icon-nav { display: flex; gap: 20px; margin-top: 30px; }
-.nav-item { cursor: pointer; display: flex; flex-direction: column; align-items: center; font-size: 12px; }
-.nav-item i { font-size: 24px; margin-bottom: 5px; }
+    <div id="window-template" class="window" style="display: none;">
+        <div class="window-header">
+            <span class="window-title">Tytuł</span>
+            <button class="close-btn" onclick="closeWindow(this)">&times;</button>
+        </div>
+        <div class="window-content">
+            <div class="avatar-circle">
+                <img src="images/CapyOF_PFP.jpg" alt="Avatar" style="width:100%; height:100%; object-fit: cover;">
+            </div>
+            <div class="placeholder-text"></div>
+        </div>
+    </div>
 
-.social-bar { position: fixed; bottom: 20px; background: var(--accent-blue); padding: 15px 40px; border-radius: 50px; display: flex; gap: 30px; color: black; font-weight: bold; }
-
-/* OKNA */
-.window {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 450px;
-    height: 320px;
-    background: var(--window-bg);
-    border-radius: 15px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid rgba(0,0,0,0.1);
-}
-
-.window-header {
-    background: var(--accent-blue);
-    padding: 10px 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: move;
-    border-radius: 15px 15px 0 0;
-    color: black;
-    font-weight: bold;
-}
-
-.close-btn { background: none; border: none; font-size: 20px; cursor: pointer; }
-
-.window-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    color: var(--text-color);
-}
-
-.avatar-circle {
-    width: 150px;
-    height: 150px;
-    background: var(--accent-blue);
-    border-radius: 50%;
-    overflow: hidden;
-    margin-bottom: 10px;
-}
-
-.hide { display: none !important; }
+    <script src="script.js"></script>
+</body>
+</html>
