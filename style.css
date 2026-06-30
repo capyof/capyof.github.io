@@ -91,3 +91,10 @@ body {
 }
 
 .hide { display: none !important; }
+
+/* Dodaj na końcu pliku style.css */
+.placeholder-text ul {
+    text-align: left;
+    padding-left: 20px;
+    margin: 5px 0;
+}
